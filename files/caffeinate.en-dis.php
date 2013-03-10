@@ -22,7 +22,7 @@ if (($cmd == "en") || ($cmd == "En")) {
 function caff_en($arg) {
 	
 	$value = exec("ps -ef|grep caff|grep -v grep");
-	$regex = "/^([\w\W]{0,})([0-9]){1,}([:]{1})([0-9]{2})([APM]{2})([\w\W]{1,})(caffeinate){1}([ \-t]{0,})([0-9]{0,})/";
+	$regex = "/^([\w\W]{0,})([0-9]){1,}([:]{1})([0-9]{2})([APM]{2})([\w\W]{1,})(caffeinate){1}([ \-tdbsi]]{0,})([0-9]{0,})/";
 
 	$match = preg_match($regex, $value, $matches);
 	if ($match) {
@@ -32,10 +32,10 @@ function caff_en($arg) {
 
 		if ($arg) {
 			$arg *= 60;
-			shell_exec("caffeinate -t $arg  >/dev/null 2>&1 &");
+			shell_exec("caffeinate -dsit $arg  >/dev/null 2>&1 &");
 			$message .= "for " . $arg/60 . " minutes.";
 		} else {
-			shell_exec("caffeinate >/dev/null 2>&1 &");
+			shell_exec("caffeinate -dsi >/dev/null 2>&1 &");
 			$message .= "indefinitely.";
 		}
 	echo $message;
