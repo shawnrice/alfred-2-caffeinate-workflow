@@ -30,4 +30,4 @@ Available Commands:
 
 ### Caffeinate Status ###
 
-!(https://github.com/shawnrice/alfred-2-caffeinate-workflow/blob/master/screenshots/caffeinate-status.PNG)
+<img src=https://github.com/shawnrice/alfred-2-caffeinate-workflow/blob/master/screenshots/caffeinate-status.PNG>
