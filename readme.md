@@ -1,0 +1,1 @@
+In Mountain Lion (10.8), Apple introduced a utility called "Caffeinate" that basically replicates what the Caffeine utility ([web](http://lightheadsw.com/caffeine/) [app store](http://itunes.apple.com/us/app/caffeine/id411246225) from [Lighthead Software](http://lightheadsw.com/) does.
