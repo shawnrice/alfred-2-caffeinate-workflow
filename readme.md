@@ -18,15 +18,15 @@ Available Commands:
 
 ### Caffeinate Activated ###
 
-!(https://github.com/shawnrice/alfred-2-caffeinate-workflow/blob/master/screenshots/caffeinate-activated.PNG)
+<img src=https://github.com/shawnrice/alfred-2-caffeinate-workflow/raw/master/screenshots/caffeinate-activated.PNG>
 
 ### Caffeinate Help ###
 
-!(https://github.com/shawnrice/alfred-2-caffeinate-workflow/blob/master/screenshots/caffeinate-help-large-text.PNG)
+<img src=https://github.com/shawnrice/alfred-2-caffeinate-workflow/raw/master/screenshots/caffeinate-help-large-text.PNG>
 
 ### Caffeinate Launch ###
 
-!(https://github.com/shawnrice/alfred-2-caffeinate-workflow/blob/master/screenshots/caffeinate-launch.PNG)
+<img src=https://github.com/shawnrice/alfred-2-caffeinate-workflow/raw/master/screenshots/caffeinate-launch.PNG>
 
 ### Caffeinate Status ###
 
