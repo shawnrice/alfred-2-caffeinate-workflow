@@ -13,3 +13,21 @@ Available Commands:
 * en 	 		— Enables caffeinate.
 * en "minutes" — Enables caffeinate for X minutes.
 * dis 			— Disables caffeinate."
+
+## Screenshots ##
+
+### Caffeinate Activated ###
+
+!(https://github.com/shawnrice/alfred-2-caffeinate-workflow/blob/master/screenshots/caffeinate-activated.PNG)
+
+### Caffeinate Help ###
+
+!(https://github.com/shawnrice/alfred-2-caffeinate-workflow/blob/master/screenshots/caffeinate-help-large-text.PNG)
+
+### Caffeinate Launch ###
+
+!(https://github.com/shawnrice/alfred-2-caffeinate-workflow/blob/master/screenshots/caffeinate-launch.PNG)
+
+### Caffeinate Status ###
+
+!(https://github.com/shawnrice/alfred-2-caffeinate-workflow/blob/master/screenshots/caffeinate-status.PNG)
