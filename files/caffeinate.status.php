@@ -12,7 +12,7 @@ $cmd = $query[0]; // Check command. This script runs only if command is "status"
 if ($cmd == "status") { // This could be written more elegantly.
 
 	$status = caff_status();
-	if ($status == 1) { } else {echo "Caffeine is disabled.";}
+	if ($status == 1) { } else {echo "Caffeinate is disabled.";}
 
 }
 
