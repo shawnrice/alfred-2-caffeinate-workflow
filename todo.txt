@@ -1,0 +1,9 @@
+Why are you reading this file? You’ve really started digging!
+—
+Internal notes to self:
+Todo:
+Cut down on the code. It could be more streamlined.
+
+I think I can take out the workflows library. That would make it smaller.
+
+I’m sure there are other things.
