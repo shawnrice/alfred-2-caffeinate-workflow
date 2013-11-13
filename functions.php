@@ -339,7 +339,7 @@ function disableCaffeinate() {
 function loadPreferences( ) {
 
 	$home = exec('echo $HOME');
-	$data = $home . "/Library/Application Support/Alfred 2/Workflow Data/com.caffeinate.control.shawn.patrick.rice";
+	$data = $home . "/Library/Application Support/Alfred 2/Workflow Data/com.shawn.patrick.rice.caffeinate.control";
 
 	if ( ! file_exists( $data ) ) {
 		mkdir( $data );
