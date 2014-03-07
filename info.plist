@@ -135,6 +135,45 @@
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>###
+# These are random notes to play with things to make it faster
+# Just consider these developer notes, and ignore them. It's
+# easier for me to keep them here, and they don't affect the workflow.
+
+
+
+ps -U $USER|grep caff|grep -v grep
+38064 ??         0:00.01 caffeinate -t 19980 -dis
+
+ps u -U $USER|grep caff|grep -v grep
+
+-t ([0-9]{1,})
+([0-9]{1,}):([0-9]{2})(AM|PM)
+
+Sven 38064   0.0  0.0  2496636   1068   ??  S     3:17PM   0:00.01 caffeinate -t 19980 -dis
+
+
+####
+# Remake "pidof" command
+####
+#!/bin/sh
+ps axc|awk "{if (\$5==\"$1\") print \$1}";</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>BD79CF13-5B2C-4352-8361-1811B7B4C796</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Use 'caff help' to see more information or visit the website.</string>
@@ -154,6 +193,11 @@
 		<dict>
 			<key>ypos</key>
 			<real>10</real>
+		</dict>
+		<key>BD79CF13-5B2C-4352-8361-1811B7B4C796</key>
+		<dict>
+			<key>ypos</key>
+			<real>250</real>
 		</dict>
 		<key>E47F6F5E-2298-47A4-BADF-51D4799C03E8</key>
 		<dict>

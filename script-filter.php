@@ -1,6 +1,9 @@
 <?php
 
 error_reporting(0); // This is set to off in order to escape an error for timezones not being set.
+$output = exec('/usr/sbin/systemsetup -gettimezone');
+$return = preg_replace('/Time Zone: /' , '' , $output);
+date_default_timezone_set($return);
 
 // Let's count the args...
 $arg = $argv[1];

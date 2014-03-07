@@ -2,6 +2,7 @@
 
 function generateCommand( $arg = '' ) {
 
+	error_reporting(0); // This is set to off in order to escape an error for timezones not being set.
 	$output = exec('/usr/sbin/systemsetup -gettimezone');
 	$return = preg_replace('/Time Zone: /' , '' , $output);
 	date_default_timezone_set($return);
@@ -197,6 +198,11 @@ function generateCommand( $arg = '' ) {
 
 function displayStatus() {
 
+	error_reporting(0); // This is set to off in order to escape an error for timezones not being set.
+	$output = exec('/usr/sbin/systemsetup -gettimezone');
+	$return = preg_replace('/Time Zone: /' , '' , $output);
+	date_default_timezone_set($return);
+
 	$status = checkCaffeinate();
 	$returnArray = array(
 		'uid' => '',
@@ -250,6 +256,11 @@ function displayStatus() {
 
 
 function checkCaffeinate() {
+	error_reporting(0); // This is set to off in order to escape an error for timezones not being set.
+	$output = exec('/usr/sbin/systemsetup -gettimezone');
+	$return = preg_replace('/Time Zone: /' , '' , $output);
+	date_default_timezone_set($return);
+
 	$reg1 = "/(caffeinate)( -)([ditsu]{1,})/";
 	$reg2 = "/(caffeinate)( -)([t]{1})( )([0-9]{1,})( -)([dism]{1,})$/";
 	$reg3 = "/([0-9]){1,}([:]{1})([0-9]{2})([APM]{2})/";
@@ -292,6 +303,11 @@ function checkCaffeinate() {
 } // End checkCaffeinate()
 
 function enableCaffeinate( $arg, $preferences ) {
+	
+	error_reporting(0); // This is set to off in order to escape an error for timezones not being set.
+	$output = exec('/usr/sbin/systemsetup -gettimezone');
+	$return = preg_replace('/Time Zone: /' , '' , $output);
+	date_default_timezone_set($return);
 	
 	$status = checkCaffeinate();
 	if ( $status != 0 ) {
