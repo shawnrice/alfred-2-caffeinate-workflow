@@ -4,6 +4,11 @@
 ################################################################################
 
 . library.sh
+datadir=`getDataDir`
+
+if [ ! -f "$datadir" ]; then
+  mkdir "$datadir"
+fi
 
 #### Start Caffeinate Script Filter
 arg=$1

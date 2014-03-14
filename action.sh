@@ -7,8 +7,10 @@
 
 data=`getDataDir`
 pref="preferences"
-#temporary for now since this is a testing workflow.
 pref="$data/$pref"
+if [ ! -f "$pref" ]; then
+  echo "i" > "$pref"
+fi
 pref=`cat "$pref"`
 # echo $pref
 
