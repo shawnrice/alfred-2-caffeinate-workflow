@@ -1,4 +1,5 @@
 #!/bin/bash
+#
 ################################################################################
 # Script filter for Caffeinate Control
 ################################################################################
@@ -6,7 +7,7 @@
 . library.sh
 datadir=`getDataDir`
 
-if [ ! -f "$datadir" ]; then
+if [ ! -d "$datadir" ]; then
   mkdir "$datadir"
 fi
 

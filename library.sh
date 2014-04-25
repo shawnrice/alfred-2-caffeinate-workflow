@@ -131,8 +131,8 @@ parseTimeArg() {
 # Standard library below
 ################################################################################
 
-VPREFS="${HOME}/Library/Caches/com.runningwithcrayons.Alfred-2/Workflow Data/"
-NVPREFS="${HOME}/Library/Application Support/Alfred 2/Workflow Data/"
+VPREFS="$HOME/Library/Caches/com.runningwithcrayons.Alfred-2/Workflow Data/"
+NVPREFS="$HOME/Library/Application Support/Alfred 2/Workflow Data/"
 
 RESULTS=()
 
@@ -184,5 +184,5 @@ getBundleId() {
 ###############################################################################
 getDataDir() {
   local BUNDLEID=$(getBundleId)
-  echo "${NVPREFS}${BUNDLEID}"
+  echo "$NVPREFS$BUNDLEID"
 }

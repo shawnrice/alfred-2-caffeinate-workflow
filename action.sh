@@ -6,8 +6,8 @@
 . library.sh
 
 data=`getDataDir`
-pref="preferences"
-pref="$data/$pref"
+pref="$data/preferences"
+
 if [ ! -f "$pref" ]; then
   echo "i" > "$pref"
 fi
