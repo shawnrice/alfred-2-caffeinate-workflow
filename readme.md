@@ -7,7 +7,7 @@ OS X 10.8.x (Mountain Lion) or higher
 In Mountain Lion (10.8), Apple introduced a utility called "Caffeinate" that basically replicates what the Caffeine utility ([web](http://lightheadsw.com/caffeine/) | [app store](http://itunes.apple.com/us/app/caffeine/id411246225) from [Lighthead Software](http://lightheadsw.com/) does.
 
 ## Installation ##
-Download the [workflow](https://github.com/packal/repository/raw/master/com.shawn.patrick.rice.caffeinate.control/caffeinate_control.alfredworkflow) file and double click it.
+Download the [workflow](http://www.packal.org/workflow/caffeinate-control) file and double click it.
 
 ## Commands ##
 
