@@ -11,16 +11,16 @@ Download the [workflow](http://www.packal.org/workflow/caffeinate-control) file 
 
 ## Commands ##
 
-Just type "caff" to get started. It will tell you the status and give you the most relevant option first.
+Just type `caff` to get started. It will tell you the status and give you the most relevant option first.
 
 Otherwise: 
-	"caff e" enables caffeinate indefinitely
-	"caff d" disables caffeinate
-	"caff 15 2" enables caffeinate for 15 hours and 2 minutes
-	"caff 23" enables caffeinate for 23 minutes
-	"caff 2h" enables caffeinate for 2 hours
-	"caff configure" opens the configuration dialog
-	"caff help" opens the help dialog.
+  - `caff e` enables caffeinate indefinitely
+  - `caff d` disables caffeinate
+  - `caff 2 15` enables caffeinate for 15 hours and 2 minutes
+  - `caff 23` enables caffeinate for 23 minutes
+  - `caff 2h` enables caffeinate for 2 hours
+  - `caff configure` opens the configuration dialog
+  - `caff help` opens the help dialog.
 
 See screenshots in directory.
 
