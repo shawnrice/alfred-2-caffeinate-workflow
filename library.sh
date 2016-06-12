@@ -12,9 +12,6 @@ secondsToHumanTime() {
     # empty
     text="indefinitely."
   else
-    # We now have the amount of time left.
-    # left=`expr $total - $s`
-
     # Let's reset some variables.
     h=0; m=0; s=0;
     ((hours=$total/3600))
@@ -77,7 +74,7 @@ secondsToHumanTime() {
 # Parses non-standard arguments
 parseTime() {
   arg=$1
-  arg=`echo "$arg"|sed 's/^ *//g'|sed 's/ *$//g'`
+  arg=`echo "${arg}"|sed 's/^ *//g'|sed 's/ *$//g'`
 
   args=(${arg// / })
   count=${#args[*]}
@@ -86,10 +83,9 @@ parseTime() {
     echo `parseTimeArg $arg`
     exit
   elif [[ $count -eq 2 ]]; then
-
-   t1=`parseTimeArg ${args[0]}m`
-   t2=`parseTimeArg ${args[1]}h`
-   (( time=$t1+$t2 ))
+   t1=`parseTimeArg ${args[0]}h`
+   t2=`parseTimeArg ${args[1]}m`
+   (( time=$t1 + $t2 ))
    echo $time
    exit
  else
@@ -131,8 +127,27 @@ parseTimeArg() {
 # Standard library below
 ################################################################################
 
-VPREFS="$HOME/Library/Caches/com.runningwithcrayons.Alfred-2/Workflow Data/"
-NVPREFS="$HOME/Library/Application Support/Alfred 2/Workflow Data/"
+if [[ -z $alfred_workflow_data ]]; then
+  if [[ -e '/Applications/Alfred 3.app' ]]; then
+    alfred_workflow_data="${HOME}/Library/Application Support/Alfred 3/Workflow Data/"
+    alfred_workflow_cache="${HOME}/Library/Caches/com.runningwithcrayons.Alfred-3/Workflow Data/"
+  elif [[ -e "${HOME}/Applications/Alfred 3.app" ]]; then
+    alfred_workflow_data="${HOME}/Library/Application Support/Alfred 3/Workflow Data/"
+    alfred_workflow_cache="${HOME}/Library/Caches/com.runningwithcrayons.Alfred-3/Workflow Data/"
+  elif [[ -e '/Applications/Alfred 2.app' ]]; then
+    alfred_workflow_data="${HOME}/Library/Application Support/Alfred 2/Workflow Data/"
+    alfred_workflow_cache="${HOME}/Library/Caches/com.runningwithcrayons.Alfred-3/Workflow Data/"
+  elif [[ -e "${HOME}/Applications/Alfred 2.app" ]]; then
+    alfred_workflow_data="${HOME}/Library/Application Support/Alfred 2/Workflow Data/"
+    alfred_workflow_cache="${HOME}/Library/Caches/com.runningwithcrayons.Alfred-3/Workflow Data/"
+  else
+    (>&2 echo 'ERROR: Cannot find a copy of Alfred.')
+    exit 1
+  fi
+fi
+
+VPREFS="${alfred_workflow_data}/"
+NVPREFS="${alfred_workflow_cache}/"
 
 RESULTS=()
 

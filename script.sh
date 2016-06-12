@@ -5,11 +5,8 @@
 ################################################################################
 
 . library.sh
-datadir=`getDataDir`
-
-if [ ! -d "$datadir" ]; then
-  mkdir "$datadir"
-fi
+# Data dir is made in library.sh
+datadir="${alfred_workflow_data}"
 
 #### Start Caffeinate Script Filter
 arg=$1
