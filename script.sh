@@ -5,15 +5,19 @@
 ################################################################################
 
 . library.sh
-# Data dir is made in library.sh
-datadir="${alfred_workflow_data}"
+datadir=`getDataDir`
+
+if [ ! -d "$datadir" ]; then
+  mkdir "$datadir"
+fi
 
 #### Start Caffeinate Script Filter
 arg=$1
 
 # first, let's do something if there are no commands.
 if [[ -z $arg ]]; then
-  cmd=`ps -eo etime,args|grep caffeinate|grep -v grep`
+  cmd=$(ps -eo etime,args|grep caffeinate|grep -v grep|sed -e 's|^[[:space:]]*||')
+
   if [[ -z "$cmd" ]]; then
     addResult "" "configure" "Configure Caffeinate Control" "Configure how you want your computer to stay awake." "images/configure.png" "yes" "configure"
     addResult "" "help" "Caffeinate Control Help" "Read the help files for Caffeinate Control." "images/blue-question.png" "yes" "help"
@@ -21,13 +25,17 @@ if [[ -z $arg ]]; then
     addResult "" "status" "Caffeinate is not running" "Your computer is tired." "images/off.png" "yes" "caf"
   else
     # Just grab how many seconds caffeinate was activated for
-    [[ $cmd =~ (caffeinate -t )([0-9]*)([a-z -]*) ]]
-    total=${BASH_REMATCH[2]}
+    [[ $cmd =~ ([0-9:]*)( )(caffeinate -t )([0-9]*)([a-z -]*) ]]
+    total=${BASH_REMATCH[4]}
+    # Convert how long it has been running for to seconds
+    running=$(etimeToSeconds ${BASH_REMATCH[1]})
+    # Take the difference
+    total=$((total - running))
 
     if [[ -z "$total" ]]; then
       text="Currently, your computer will never sleep."
     else
-      string=`secondsToHumanTime $total`
+      string=$(secondsToHumanTime $total)
       text="Caffeinate will be active for another $string"
     fi
     addResult "" "help" "Caffeinate Control Help" "Read the help files for Caffeinate Control." "images/blue-question.png" "yes" "help"

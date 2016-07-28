@@ -12,6 +12,9 @@ secondsToHumanTime() {
     # empty
     text="indefinitely."
   else
+    # We now have the amount of time left.
+    # left=`expr $total - $s`
+
     # Let's reset some variables.
     h=0; m=0; s=0;
     ((hours=$total/3600))
@@ -83,11 +86,11 @@ parseTime() {
     echo `parseTimeArg $arg`
     exit
   elif [[ $count -eq 2 ]]; then
-   t1=`parseTimeArg ${args[0]}h`
-   t2=`parseTimeArg ${args[1]}m`
-   (( time=$t1 + $t2 ))
-   echo $time
-   exit
+    t1=`parseTimeArg ${args[0]}h`
+    t2=`parseTimeArg ${args[1]}m`
+    (( time=$t1 + $t2 ))
+    echo $time
+    exit
  else
    # there are more than three arguments, so just make this indefinite
    echo "0"
@@ -146,6 +149,13 @@ if [[ -z $alfred_workflow_data ]]; then
   fi
 fi
 
+if [[ ! -e "${alfred_workflow_data}" ]]; then
+  mkdir -p "${alfred_workflow_data}"
+fi
+if [[ ! -e "${alfred_workflow_cache}" ]]; then
+  mkdir -p "${alfred_workflow_cache}"
+fi
+
 VPREFS="${alfred_workflow_data}/"
 NVPREFS="${alfred_workflow_cache}/"
 
@@ -199,5 +209,25 @@ getBundleId() {
 ###############################################################################
 getDataDir() {
   local BUNDLEID=$(getBundleId)
-  echo "$NVPREFS$BUNDLEID"
+  echo "$alfred_workflow_data"
+}
+
+### Convert etime (from `ps`) to seconds. I love stackoverflow.
+#https://stackoverflow.com/questions/14652445/parse-ps-etime-output-and-convert-it-into-seconds
+function etimeToSeconds() {
+	echo $1 | awk -F $':' -f <(cat - <<-'EOF'
+  {
+    if (NF == 2) {
+      print $1*60 + $2
+    } else if (NF == 3) {
+      split($1, a, "-");
+      if (a[2] > 0) {
+        print ((a[1]*24+a[2])*60 + $2) * 60 + $3;
+      } else {
+        print ($1*60 + $2) * 60 + $3;
+      }
+    }
+  }
+EOF
+)
 }

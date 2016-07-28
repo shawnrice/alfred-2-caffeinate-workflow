@@ -5,13 +5,13 @@
 
 . library.sh
 
-data=`getDataDir`
-pref="$data/preferences"
+data="${alfred_workflow_data}"
+pref="${data}/preferences"
 
 if [ ! -f "$pref" ]; then
   echo "i" > "$pref"
 fi
-pref=`cat "$pref"`
+pref=`cat "${pref}"`
 # echo $pref
 
 if [[ -z $1 ]]; then
