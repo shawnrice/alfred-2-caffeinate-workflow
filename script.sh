@@ -16,7 +16,7 @@ arg=$1
 
 # first, let's do something if there are no commands.
 if [[ -z $arg ]]; then
-  cmd=$(ps -eo etime,args|grep caffeinate|grep -v grep|sed -e 's|^[[:space:]]*||')
+  cmd=$(ps -eo etime,args|grep '[[:space:]]caffeinate[[:space:]]'|grep -v grep|sed -e 's|^[[:space:]]*||')
 
   if [[ -z "$cmd" ]]; then
     addResult "" "configure" "Configure Caffeinate Control" "Configure how you want your computer to stay awake." "images/configure.png" "yes" "configure"
@@ -51,7 +51,7 @@ if [[ -z $arg ]]; then
   exit
 else
   # There is an argument, so let's deal with it
-  cmd=`ps -eo etime,args|grep caffeinate|grep -v grep`
+  cmd=`ps -eo etime,args|grep '[[:space:]]caffeinate[[:space:]]'|grep -v grep`
 
   if [[ $arg =~ ^(c|C)([oO]*) ]]; then
     addResult "configure" "configure" "Configure Caffeinate Control" "Configure how you want your computer to stay awake." "images/configure.png" "yes" "configure"
