@@ -27,14 +27,14 @@ if [[ -z $arg ]]; then
     # Just grab how many seconds caffeinate was activated for
     [[ $cmd =~ ([0-9:]*)( )(caffeinate -t )([0-9]*)([a-z -]*) ]]
     total=${BASH_REMATCH[4]}
-    # Convert how long it has been running for to seconds
-    running=$(etimeToSeconds ${BASH_REMATCH[1]})
-    # Take the difference
-    total=$((total - running))
 
     if [[ -z "$total" ]]; then
       text="Currently, your computer will never sleep."
     else
+      # Convert how long it has been running for to seconds
+      running=$(etimeToSeconds ${BASH_REMATCH[1]})
+      # Take the difference
+      total=$((total - running))
       string=$(secondsToHumanTime $total)
       text="Caffeinate will be active for another $string"
     fi
